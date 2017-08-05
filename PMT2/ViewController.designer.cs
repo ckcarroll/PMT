@@ -43,6 +43,10 @@ namespace PMT2
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIScrollView Scroll { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField stateTax { get; set; }
 
         [Outlet]
@@ -100,6 +104,11 @@ namespace PMT2
             if (registration != null) {
                 registration.Dispose ();
                 registration = null;
+            }
+
+            if (Scroll != null) {
+                Scroll.Dispose ();
+                Scroll = null;
             }
 
             if (stateTax != null) {

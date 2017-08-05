@@ -6,8 +6,6 @@ namespace PMT2
 {
     public partial class ViewController : UIViewController
     {
-		UIScrollView scrollView;
-		UIImageView imageView;
 
         protected ViewController(IntPtr handle) : base(handle)
         {
@@ -18,8 +16,7 @@ namespace PMT2
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-			scrollView = new UIScrollView(new CGRect(0, 0, View.Frame.Width, View.Frame.Height));
-			View.AddSubview(scrollView);
+
 
 		}
 
@@ -33,31 +30,37 @@ namespace PMT2
 
         partial void UIButton446_TouchUpInside(UIButton sender)
         {
-			//UIAlertView _error = new UIAlertView("My Title Text", "This is my main text", null, "Ok", null);
-			//_error.Show();
+            //UIAlertView _error = new UIAlertView("My Title Text", "This is my main text", null, "Ok", null);
+            //_error.Show();
+            try
+            {
+                double loanAmount;
+                double moneyDown;
+                double gapIns;
+                double regis;
+                double title;
+                double tax;
+                double interest;
+                double loanTerm;
 
-			double loanAmount;
-			double moneyDown;
-			double gapIns;
-			double regis;
-			double title;
-			double tax;
-			double interest;
-			double loanTerm;
-
-			loanAmount = Convert.ToDouble(loan.Text);
-			moneyDown = Convert.ToDouble(mnyDwn.Text);
-			gapIns = Convert.ToDouble(gap.Text);
-			regis = Convert.ToDouble(registration.Text);
-			title = Convert.ToDouble(titleFee.Text);
-			tax = Convert.ToDouble(stateTax.Text);
-			interest = Convert.ToDouble(interestRate.Text);
-			loanTerm = Convert.ToDouble(term.Text);
+                loanAmount = Convert.ToDouble(loan.Text);
+                moneyDown = Convert.ToDouble(mnyDwn.Text);
+                gapIns = Convert.ToDouble(gap.Text);
+                regis = Convert.ToDouble(registration.Text);
+                title = Convert.ToDouble(titleFee.Text);
+                tax = Convert.ToDouble(stateTax.Text);
+                interest = Convert.ToDouble(interestRate.Text);
+                loanTerm = Convert.ToDouble(term.Text);
 
 
 
-			suggestDown.Text = Calcs.CalcSuggestedDown((loanAmount)).ToString("###,###.##");
-			estPMT.Text = Calcs.CalcPayment(loanAmount, moneyDown, gapIns, regis, title, tax, interest, loanTerm).ToString("###,###.##");
+                suggestDown.Text = Calcs.CalcSuggestedDown((loanAmount)).ToString("###,###.##");
+                estPMT.Text = Calcs.CalcPayment(loanAmount, moneyDown, gapIns, regis, title, tax, interest, loanTerm).ToString("###,###.##");
+            }
+            catch(Exception){
+				UIAlertView _error = new UIAlertView("You done messed up A-aron!", "Something went wrong. You probably forgot to enter values...yea that was probably it. But what do I know? I'm just a lousy iPhone app.", null, "Ok", null);
+				_error.Show();
+			}
            
 		}
 
