@@ -58,8 +58,9 @@ namespace PMT2
                 estPMT.Text = Calcs.CalcPayment(loanAmount, moneyDown, gapIns, regis, title, tax, interest, loanTerm).ToString("###,###.##");
             }
             catch(Exception){
-				UIAlertView _error = new UIAlertView("You done messed up A-aron!", "Something went wrong. You probably forgot to enter values...yea that was probably it. But what do I know? I'm just a lousy iPhone app.", null, "Ok", null);
+				UIAlertView _error = new UIAlertView("You done messed up A-aron!", "Something went wrong.", null, "Ok", null);
 				_error.Show();
+
 			}
            
 		}
