@@ -35,7 +35,7 @@ namespace PMT2
 		{
             //20% is the suggested amount to put down on a car loan
             //Home loans to be added later.
-			double sugDown = loan * .2;
+			double sugDown = loan * .3;
 
 			return sugDown;
 		}
